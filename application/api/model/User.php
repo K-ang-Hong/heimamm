@@ -119,7 +119,6 @@ class User extends Common
 		if(!$user_info['avatar']){
 			$user_info['avatar'] = 'face.jpg';
 		}
-		unset($user_info['role_id']);
 		return $user_info;
 	}
 }

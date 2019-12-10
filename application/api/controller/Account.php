@@ -44,7 +44,7 @@ class Account extends Base{
 		}
 		// 获取file对象
 		$file = $request->file('file');
-		if(!$file){
+		if($file ==FALSE){
 			return ajax_return('没有上传的文件',[],204);
 		}
 		// 移动到框架应用根目录/public/uploads/ 目录下
@@ -106,7 +106,7 @@ class Account extends Base{
 		// 检查验证码
 		$obj = new \think\captcha\Captcha();
 		if(!$obj->check($this->params['code'],'login')){
-			// return ajax_return('验证码错误',[],202);
+			return ajax_return('验证码错误',[],202);
 		}
 		$model = model('User');
 		// 登录
