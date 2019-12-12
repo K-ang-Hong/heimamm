@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-12-12 22:00:50
+Date: 2019-12-12 23:02:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -221,5 +221,5 @@ CREATE TABLE `heima_user` (
 -- ----------------------------
 -- Records of heima_user
 -- ----------------------------
-INSERT INTO `heima_user` VALUES ('1', 'admin', 'admin@163.com', '18511111111', '082dbe592cbb7127c86c4b4d095452e4', '3019', 'upload/20191206/6f538c44c1eef4e95dc1d4b24d88334d.jpg', '', '1', '1', '0', '1575602791', '1575620074');
-INSERT INTO `heima_user` VALUES ('2', 'manager', 'manager@163.com', '18522222222', '082dbe592cbb7127c86c4b4d095452e4', '3019', 'upload/20191206/6f538c44c1eef4e95dc1d4b24d88334d.jpg', '', '1', '2', '0', '1575602791', '1575620074');
+INSERT INTO `heima_user` VALUES ('1', 'admin', 'admin@163.com', '18511111111', '082dbe592cbb7127c86c4b4d095452e4', '3019', 'face.jpg', '', '1', '1', '0', '1575602791', '1575620074');
+INSERT INTO `heima_user` VALUES ('2', 'manager', 'manager@163.com', '18522222222', '082dbe592cbb7127c86c4b4d095452e4', '3019', 'face.jpg', '', '1', '2', '0', '1575602791', '1575620074');
