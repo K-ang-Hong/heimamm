@@ -46,7 +46,7 @@ class User extends Common
 		// 组装查询条件
 		$where =['is_del'=>0];
 		if(!empty($params['username'])){
-			$where['username'] =['like', '%'.$params['name'].'%'];
+			$where['username'] =['like', '%'.$params['username'].'%'];
 		}
 		if(!empty($params['email'])){
 			$where['email'] = $params['email'];
