@@ -46,7 +46,7 @@ class User extends Common
 		// 组装查询条件
 		$where =['is_del'=>0];
 		if(!empty($params['username'])){
-			$where['username'] =['like', '%'.$params['username'].'%'];
+			$where['username'] =['like', '%'.$params['name'].'%'];
 		}
 		if(!empty($params['email'])){
 			$where['email'] = $params['email'];
@@ -62,7 +62,7 @@ class User extends Common
 		// 提取角色名称
 		$role_info = config('role_info');
 		foreach($list as $value){
-			$value['role'] = $role_info[$value['role_id']];
+			$value['role'] = isset($role_info[$value['role_id']])?$role_info[$value['role_id']]:'';
 			$items[] = $value;
 		}
 		return ['items'=>$items,'pagination'=>['total'=>$total,'page'=>$page]];
