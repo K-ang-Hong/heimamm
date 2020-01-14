@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-12-12 23:02:54
+Date: 2020-01-14 15:03:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -97,11 +97,14 @@ CREATE TABLE `heima_enterprise` (
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   `is_del` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='企业表';
+) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COMMENT='企业表';
 
 -- ----------------------------
 -- Records of heima_enterprise
 -- ----------------------------
+INSERT INTO `heima_enterprise` VALUES ('49', '1', '传智播客', '传智', '传智播客', '3', '传智播客', '1', '1578984734', '1578984734', '0');
+INSERT INTO `heima_enterprise` VALUES ('50', '2', '黑马程序员', '黑马', '黑马', '3', '黑马', '1', '1578984758', '1578984758', '0');
+INSERT INTO `heima_enterprise` VALUES ('51', '3', '阿里巴巴', '阿里', '阿里', '3', '阿里', '1', '1578984775', '1578984775', '0');
 
 -- ----------------------------
 -- Table structure for `heima_options`
@@ -114,11 +117,15 @@ CREATE TABLE `heima_options` (
   `text` varchar(255) NOT NULL DEFAULT '' COMMENT '选项说明',
   `image` varchar(255) NOT NULL DEFAULT '' COMMENT '图片地址',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=217 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=785 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of heima_options
 -- ----------------------------
+INSERT INTO `heima_options` VALUES ('781', '91', 'A', '$(dom)形式可以将dom对象转换为jQuery对象', 'upload/20191129/fd5f03a07d95e3948860240564b180e4.jpeg');
+INSERT INTO `heima_options` VALUES ('782', '91', 'B', 'dom与jQuery对象没有关系', 'upload/20191129/e93e7bb72accda7f3159cdabc4203991.jpeg');
+INSERT INTO `heima_options` VALUES ('783', '91', 'C', 'dom对象可以直接调用jQuery下的方法', 'upload/20191129/b7caf98be9d0aa6764b0112ba0dfa19e.jpeg');
+INSERT INTO `heima_options` VALUES ('784', '91', 'D', 'jQuery对象可以直接调用dom对象下的方法', 'upload/20191129/4067f19ab53a5e8388ad3459e23110f0.jpeg');
 
 -- ----------------------------
 -- Table structure for `heima_questions`
@@ -146,11 +153,12 @@ CREATE TABLE `heima_questions` (
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   `is_del` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of heima_questions
 -- ----------------------------
+INSERT INTO `heima_questions` VALUES ('91', '<p>dom与jQuery对象的说法正确的是？</p>', '97', '1', '50', '440000,440300,440306', '1', '1', '1', '0', '3', 'A', '', null, '', 'jQuery对象是dom对象之间的关系', '<p>jQuery对象是dom对象的集合可以使用</p><p>$(dom)将dom对象转换为jQuery对象。使用jquery[序号]获取到dom对象</p><p><br></p>', '1578985065', '1578985065', '0');
 
 -- ----------------------------
 -- Table structure for `heima_role`
@@ -191,11 +199,13 @@ CREATE TABLE `heima_subject` (
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   `is_del` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='学科表';
+) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8 COMMENT='学科表';
 
 -- ----------------------------
 -- Records of heima_subject
 -- ----------------------------
+INSERT INTO `heima_subject` VALUES ('97', 'QD001', '前段与移动开发', '前段', '前段与移动开发', '3', '', '1', '1578984566', '1578984578', '0');
+INSERT INTO `heima_subject` VALUES ('98', 'JAVA001', 'JavaWeb', 'JavaWeb', 'JavaWeb', '3', 'JavaWeb', '1', '1578984672', '1578984672', '0');
 
 -- ----------------------------
 -- Table structure for `heima_user`
@@ -216,10 +226,11 @@ CREATE TABLE `heima_user` (
   `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of heima_user
 -- ----------------------------
-INSERT INTO `heima_user` VALUES ('1', 'admin', 'admin@163.com', '18511111111', '082dbe592cbb7127c86c4b4d095452e4', '3019', 'face.jpg', '', '1', '1', '0', '1575602791', '1575620074');
-INSERT INTO `heima_user` VALUES ('2', 'manager', 'manager@163.com', '18522222222', '082dbe592cbb7127c86c4b4d095452e4', '3019', 'face.jpg', '', '1', '2', '0', '1575602791', '1575620074');
+INSERT INTO `heima_user` VALUES ('1', '18511111111', '18511111111@qq.com', '18511111111', '2f96a71deb945a160f885562ab0e42d2', '2745', 'upload/20200114/53043f648b360ac32398c365d9c4d2db.jpg', '初始超级管理员', '1', '1', '0', '1578984111', '1578984111');
+INSERT INTO `heima_user` VALUES ('2', '18522222222', '18522222222@qq.com', '18522222222', 'c81a398012f3da4d66e83233fa511b5a', '2854', '', '初始管理员', '1', '2', '0', '1578984189', '1578984189');
+INSERT INTO `heima_user` VALUES ('3', 'phper_leo', 'phper_leo@163.com', '18520409113', '6d0370af18250e1f242e8e6bf9ce078a', '4473', 'upload/20200114/53043f648b360ac32398c365d9c4d2db.jpg', '初始管理员', '1', '1', '0', '1578983974', '1578983974');

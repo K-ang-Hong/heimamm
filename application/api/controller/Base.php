@@ -15,10 +15,9 @@ class Base extends Controller{
 	public function _initialize(){
 		$this->request = Request::instance();
 		// 获取请求体参数信息
-		$this->params = is_json($this->request->getContent());
-		if(!$this->params){
-			$this->params = input();
-		}
+		$this->params = is_json($this->request->getContent())?is_json($this->request->getContent()):[];
+		// 接受get请求参数
+		$this->params = array_merge($this->params,input());
 		// 记录日志
 		$this->writeLog('请求地址:'.$this->request->url(true).':请求参数:'.json_encode($this->params,JSON_UNESCAPED_UNICODE));
 	}

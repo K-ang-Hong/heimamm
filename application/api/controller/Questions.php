@@ -54,7 +54,7 @@ class Questions extends Common{
 	// 编辑题目
 	public function edit(){
 		if(!isset($this->params['id']) || !isset($this->params['type'])){
-			return ajax_return('参数不符');
+			return ajax_return('参数不符2');
 		}
 		
 		$model = model('Questions');
@@ -66,6 +66,6 @@ class Questions extends Common{
 
 			return ajax_return($error);
 		}
-		return ajax_return('ok',['question_id'=>$result]);
+		return ajax_return('ok');
 	}
 }

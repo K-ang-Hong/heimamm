@@ -21,10 +21,9 @@ class Questions extends Common{
 				$where[$key] = $value;
 			}
 		}
-		// dump($params);
 		// 组装创建者条件
 		if(!empty($params['username'])){
-			$user = model('User')->get(['name'=>$params['username']]);
+			$user = model('User')->get(['username'=>$params['username']]);
 			if($user){
 				$where['user_id'] = $user->getAttr('id');
 			}else{
@@ -87,6 +86,19 @@ class Questions extends Common{
 		// 提取城市信息
 		$params['city'] = implode(',',$params['city']);
 		// 省市区
+		$this->passAnswer($params);
+		// 试题基本数据入库
+		$this->allowField(TRUE)->isUpdate(FALSE)->save($params);
+		
+		$question_id= $this->getLastInsID();
+
+		if($params['type'] !=3){
+			model('Options')->addOptions($question_id,$params['select_options']);
+		}
+		return $question_id;
+	}
+	// 处理答案
+	private function passAnswer(&$params){
 		switch ($params['type']) {
 			case '1':
 				unset($params['multiple_select_answer']);
@@ -102,26 +114,12 @@ class Questions extends Common{
 				unset($params['single_select_answer']);
 				break;
 		}
-		// 试题基本数据入库
-		$this->allowField(TRUE)->isUpdate(FALSE)->save($params);
-		
-		$question_id= $this->getLastInsID();
-
-		if($params['type'] !="简答"){
-			model('Options')->addOptions($question_id,$params['select_options']);
-		}
-		return $question_id;
 	}
 	public function editQuestion($params){
 		if($params['user_id']){
 			unset($params['user_id']);
 		}
-		if($params['create_time']){
-			unset($params['create_time']);
-		}
-		if($params['update_time']){
-			unset($params['update_time']);
-		}
+		$this->passAnswer($params);
 		// 试题基本数据入库
 		$this->allowField(TRUE)->isUpdate(TRUE)->save($params);
 		model('Options')->editOptions($params);
