@@ -19,7 +19,7 @@ class Base extends Controller{
 		// 接受get请求参数
 		$this->params = array_merge($this->params,input());
 		// 记录日志
-		$this->writeLog('请求地址:'.$this->request->url(true).':请求参数:'.json_encode($this->params,JSON_UNESCAPED_UNICODE));
+		// $this->writeLog('请求地址:'.$this->request->url(true).':请求参数:'.json_encode($this->params,JSON_UNESCAPED_UNICODE));
 	}
 	// 追加写入接口调用日志
 	public function writeLog($content){
